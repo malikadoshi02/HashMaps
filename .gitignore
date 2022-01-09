@@ -1,54 +1,33 @@
-public class Course {
-    private String department;
-    private int number;
-    private String semester;
+import java.util.Comparator;
 
+public class CourseNameComparator implements Comparator<Object> {
     /**
-     * gets the department
+     * compares the Courses
+     * @param o1
+     * @param o2
      * @return
      */
-    public String getDepartment() {
-        return department;
+    public int compare(Object o1, Object o2) {
+        Course e1 = (Course) o1;
+        Course e2 = (Course) o2;
+        return (e1.getDepartment().compareTo(e2.getDepartment()));
     }
 
     /**
-     * sets the department
-     * @param department
-     */
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    /**
-     * gets the number
+     * compares the numbers
+     * @param left
+     * @param right
      * @return
      */
-    public int getNumber() {
-        return number;
-    }
+        public int compareTo(Course left, Course right){
+            Course s1 = (Course) left;
+            Course s2 = (Course) right;
+            if (s1.getDepartment() == s2.getDepartment())
+                return 0;
+            else if (s1.getNumber() < s2.getNumber())
+                return 1;
+            else
+                return -1;
 
-    /**
-     * sets the number
-     * @param number
-     */
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    /**
-     * gets the semester
-     * @return
-     */
-    public String getSemester() {
-        return semester;
-    }
-
-    /**
-     * sets the semester
-     * @param semester
-     */
-    public void setSemester(String semester) {
-        this.semester = semester;
-    }
-
+        }
 }
